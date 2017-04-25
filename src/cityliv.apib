@@ -1,9 +1,11 @@
 FORMAT: 1A
 
-# CityLiv API
+# CityLiv API Documentation
 This is the API of CityLiv by Mobilizen, a Delivery As A Service company based in Paris, France.
 CityLiv is a *new generation electric city transporter*. We provide a robust to technology to our drivers,
 to make them faster, efficient and deliver every package with profesionalism.
+
+More infos at [https://cityliv.fr](https://cityliv.fr)
 
 
 ## Workflow
@@ -13,6 +15,38 @@ The common workflow is:
 
 * You (the Retailer) ask for a course from point A to point B.
 * For both points (refered as `origin` and `destination`), you specify a contact, an address and a date range.
+* A contact is like:
+
+```json
+{
+  "originContact": {
+    "company": "The company (optional) if the contact is working when delivery occurs",
+    "firstName": "Said",
+    "lastName": "Martin",
+    "phoneNumber": "06 00 00 00 00"
+  }
+}
+```
+
+* An address has this format:
+
+```json
+{
+  "destinationAddress": {
+    "formattedAddress": "18 rue de Rivoli, 75004, Paris, France",
+    "postalCode": "75004",
+    "location": [ 2.35604, 48.8560 ]
+  }
+}
+```
+  * An address has optional fields like :
+    * `digicode`,
+    * `floorNumber`,
+    * `apartmentNumber`,
+    *  and `comments`
+
+
+
 * If the course is accepted, you can enable webhooks to be notified every time the course's status is updated:
   * ASSIGNED
   * PICKING
@@ -49,11 +83,18 @@ We designed the CityLiv API in a very RESTful way, so that your user experience 
 Requests must be sent using Content-Type `application/json`. The request and response body encoding is always UTF-8.
 
 ## Formats used
+
+* Case Sensitive Parameters
+  * The field and parameter names in requests are case sensitive
+
 * Dates
   * All date and time values are displayed according to ISO_8601 https://en.wikipedia.org/wiki/ISO_8601. The date/time property type in the specification is specified as `Date` the actual JSON type is `String`.
 
-* Case Sensitive Parameters
-  * The field and parameter names in requests are case sensitive.
+* Addresses
+  * All address objects are determined by 3 mandatory fields:
+    * `formattedAddress`: a string with the street number, the street, the postal code, the city and the country
+    * `postalCode`: a string with the postal code, without space. This field is used for automatic dispatch. Example: "75015"
+    * `location`: an array according to GeoJson coordinates format, two floats: [ lontitude, latitude ]. Please, be careful because many systems use other syntaxes like `latitude, longitude`. More infos at [GeoJSON Format Specification](https://tools.ietf.org/html/rfc7946). Example for Paris: `[2.3522, 48.8566]`
 
 <!-- * Amounts All monetary amounts are given as integer numbers in cents (by default eurocents). -->
 <!-- Currencies You can currently pay and wire funds in these currencies: EUR, USD, GBP, PLN, CHF, NOK, SEK, DKK -->
@@ -68,7 +109,7 @@ Response code |	Description
 200 |	Request successful
 201 |	Data successfully submitted
 400 |	Any kind of logical error with your request (missing parameters, invalid operation, constraint violation etc.)
-403 |	Access is forbidden (authentication or authorisation failure)
+403 |	Access is forbidden (authentication or authorization failure)
 404 |	Object not found
 500 |	Internal server error - we advise you to try again later, or contact support if the problem persists
 <!-- 405 |	HTTP method not allowed (for example if you try to update a read-only object) -->
@@ -124,9 +165,9 @@ The maximum amount of calls is 10 requests/second. If you want to up
 Creates a new Course.
 
 + Request CourseSample
-            + Headers
-              Content-Type: application/json
-              Authorization: Bearer MY_SUPER_TOKEN
+  + Headers
+    Content-Type: application/json
+    Authorization: Bearer MY_SUPER_TOKEN
 
   + Attributes (Course Base)
 
@@ -135,18 +176,17 @@ Creates a new Course.
   + Attributes (Course Computed)
 
 
-### List all Courses [GET]
+## All Courses [/courses{?limit}]
 Returns a list of your courses.
 
+### Retrieve all Courses [GET]
 + Parameters
-    + limit (number, optional)
-        A limit on the number of objects to be returned. Limit can range
-        between 1 and 100 items.
+    + limit (number, optional) - A limit on the number of objects to be returned. Limit can range between 1 and 100 items.
         + Default: `10`
 
-+ Request Example1 (application/json)
-        + Headers
-          Authorization: Bearer MY_SUPER_TOKEN
++ Request AllCourses (application/json)
+    + Headers
+      Authorization: Bearer MY_SUPER_TOKEN
 
 + Response 200 (application/json)
     + Attributes (array[Course Computed])
@@ -154,24 +194,20 @@ Returns a list of your courses.
 
 
 ## Course [/courses/{id}]
-A course contains information about a percent-off or amount-off discount you
-might want to apply to a customer.
 
 + Parameters
-    + id (string)
-        The ID of the desired course.
+  + id (string, required) - The id of the desired course.
 
 ### Retrieve a Course [GET]
 Retrieves the course with the given ID.
 
-+ Request 151fdvb5dbg1 (application/json)
++ Request Good Id (application/json)
   + Headers
     Authorization: Bearer MY_SUPER_TOKEN
-
 + Response 200 (application/json)
     + Attributes (Course Computed)
 
-+ Request unknownId (application/json)
++ Request Unknown Id (application/json)
   + Headers
     Authorization: Bearer MY_SUPER_TOKEN
 + Response 400 (application/json)
@@ -184,13 +220,13 @@ Retrieves the course with the given ID.
 # Data Structures
 
 ## Course Base (object)
-+ originAfter: `2017-01-20T12:00:00+02:00` (string, required) - date https://en.wikipedia.org/wiki/ISO_8601
-+ originBefore: `2017-01-20T12:30:00+02:00` (string, required) - date https://en.wikipedia.org/wiki/ISO_8601
++ originAfter: `2017-01-20T12:00:00+02:00` (string, required) - Date
++ originBefore: `2017-01-20T12:30:00+02:00` (string, required) - Date
 + originAddress (Address Base)
 + originContact (Contact Base)
 
-+ destinationAfter: `2017-01-20T17:35:00+02:00` (string, required) - date https://en.wikipedia.org/wiki/ISO_8601
-+ destinationBefore: `2017-01-20T18:05:00+02:00` (string, required) - date https://en.wikipedia.org/wiki/ISO_8601
++ destinationAfter: `2017-01-20T17:35:00+02:00` (string, required) - Date
++ destinationBefore: `2017-01-20T18:05:00+02:00` (string, required) - Date
 + destinationAddress (Address Destination Base)
 + destinationContact (Contact Destination Base)
 
@@ -204,8 +240,8 @@ Retrieves the course with the given ID.
 + retailerId: 56cs89dcs5 (string)
 + status: 'CREATED', 'PENDING', 'ASSIGNED', 'PICKING', 'WAITING_AT_ORIGIN', 'PICKED_UP', 'DELIVERING', 'WAITING_AT_DESTINATION', 'DELIVERED', 'DELETED', 'FAILED' (enum) - Current status
 
-+ createdAt: `2017-01-20T10:28:15+0200` (string) - date in the [ISO601 format](https://en.wikipedia.org/wiki/ISO_8601)
-+ lastModifiedAt: `2017-01-20T16:12:09+02:00` (string) - date in the [ISO601 format](https://en.wikipedia.org/wiki/ISO_8601)
++ createdAt: `2017-01-20T10:28:15+0200` (string) - Date
++ lastModifiedAt: `2017-01-20T16:12:09+02:00` (string) - Date
 
 + Include Course Base
 
@@ -225,7 +261,7 @@ Retrieves the course with the given ID.
 
 ## Address Base
 + formattedAddress: 18 rue de Montesquieu, 75018 Paris, France (string, required)
-+ location: 48.458, 2.43 (array, required) - GeoJson [lontitude, latitude]
++ location: 2.43, 48.458 (array, required) - GeoJson [lontitude, latitude]
 + postalCode: 75018 (string, required)
 + digicode: 7986 (string, optional)
 + floorNumber: 4ème (string, optional)
@@ -238,7 +274,7 @@ Retrieves the course with the given ID.
 ## Address Destination Base
 + Include Address Base
 + formattedAddress: 26 rue de Rivoli, 75004 Paris, France (string, required)
-+ location: 48.8560, 2.35604 (array, required) - GeoJson [lontitude, latitude]
++ location: 2.35604, 48.8560 (array, required) - GeoJson [lontitude, latitude]
 + postalCode: 75004 (string, required)
 + digicode: N/A (string, optional)
 + floorNumber: N/A (string, optional)
