@@ -4,8 +4,8 @@
   "description": "[https://docs.api.cityliv.fr](https://docs.api.cityliv.fr)",
   "main": "index.html",
   "scripts": {
-    "start": "aglio --theme-variables slate --theme-template triple -i cityliv.apib -s",
-    "build": "aglio --theme-variables slate --theme-template triple -i cityliv.apib -o index.html",
+    "start": "aglio --theme-variables slate --theme-template triple -i src/cityliv.apib -s",
+    "build": "aglio --theme-variables slate --theme-template triple -i src/cityliv.apib -o docs/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
