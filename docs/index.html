@@ -357,9 +357,6 @@ This token must be placed in the <code>Authorization</code> header as follow:
       "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
         <span class="hljs-string">"formattedAddress"</span>,
         <span class="hljs-string">"location"</span>,
-        <span class="hljs-string">"postalCode"</span>,
-        <span class="hljs-string">"formattedAddress"</span>,
-        <span class="hljs-string">"location"</span>,
         <span class="hljs-string">"postalCode"</span>
       ]
     </span>}</span>,
@@ -401,9 +398,9 @@ This token must be placed in the <code>Authorization</code> header as follow:
   "<span class="hljs-attribute">shortId</span>": <span class="hljs-value"><span class="hljs-string">"48ed9szef"</span></span>,
   "<span class="hljs-attribute">creatorId</span>": <span class="hljs-value"><span class="hljs-string">"dez898rf5ez4f"</span></span>,
   "<span class="hljs-attribute">retailerId</span>": <span class="hljs-value"><span class="hljs-string">"56cs89dcs5"</span></span>,
-  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"'CREATED'"</span></span>,
   "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2017-01-20T10:28:15+0200"</span></span>,
   "<span class="hljs-attribute">lastModifiedAt</span>": <span class="hljs-value"><span class="hljs-string">"2017-01-20T16:12:09+02:00"</span></span>,
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"'CREATED'"</span></span>,
   "<span class="hljs-attribute">originAfter</span>": <span class="hljs-value"><span class="hljs-string">"2017-01-20T12:00:00+02:00"</span></span>,
   "<span class="hljs-attribute">originBefore</span>": <span class="hljs-value"><span class="hljs-string">"2017-01-20T12:30:00+02:00"</span></span>,
   "<span class="hljs-attribute">originAddress</span>": <span class="hljs-value">{
@@ -462,6 +459,14 @@ This token must be placed in the <code>Authorization</code> header as follow:
     "<span class="hljs-attribute">retailerId</span>": <span class="hljs-value">{
       "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
     </span>}</span>,
+    "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Date"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">lastModifiedAt</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Date"</span>
+    </span>}</span>,
     "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
       "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
       "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
@@ -478,14 +483,6 @@ This token must be placed in the <code>Authorization</code> header as follow:
         <span class="hljs-string">"'FAILED'"</span>
       ]</span>,
       "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Current status"</span>
-    </span>}</span>,
-    "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value">{
-      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Date"</span>
-    </span>}</span>,
-    "<span class="hljs-attribute">lastModifiedAt</span>": <span class="hljs-value">{
-      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Date"</span>
     </span>}</span>,
     "<span class="hljs-attribute">originAfter</span>": <span class="hljs-value">{
       "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
@@ -590,9 +587,6 @@ This token must be placed in the <code>Authorization</code> header as follow:
       "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
         <span class="hljs-string">"formattedAddress"</span>,
         <span class="hljs-string">"location"</span>,
-        <span class="hljs-string">"postalCode"</span>,
-        <span class="hljs-string">"formattedAddress"</span>,
-        <span class="hljs-string">"location"</span>,
         <span class="hljs-string">"postalCode"</span>
       ]
     </span>}</span>,
@@ -637,9 +631,9 @@ This token must be placed in the <code>Authorization</code> header as follow:
     "<span class="hljs-attribute">shortId</span>": <span class="hljs-value"><span class="hljs-string">"48ed9szef"</span></span>,
     "<span class="hljs-attribute">creatorId</span>": <span class="hljs-value"><span class="hljs-string">"dez898rf5ez4f"</span></span>,
     "<span class="hljs-attribute">retailerId</span>": <span class="hljs-value"><span class="hljs-string">"56cs89dcs5"</span></span>,
-    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"'CREATED'"</span></span>,
     "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2017-01-20T10:28:15+0200"</span></span>,
     "<span class="hljs-attribute">lastModifiedAt</span>": <span class="hljs-value"><span class="hljs-string">"2017-01-20T16:12:09+02:00"</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"'CREATED'"</span></span>,
     "<span class="hljs-attribute">originAfter</span>": <span class="hljs-value"><span class="hljs-string">"2017-01-20T12:00:00+02:00"</span></span>,
     "<span class="hljs-attribute">originBefore</span>": <span class="hljs-value"><span class="hljs-string">"2017-01-20T12:30:00+02:00"</span></span>,
     "<span class="hljs-attribute">originAddress</span>": <span class="hljs-value">{
@@ -692,9 +686,9 @@ This token must be placed in the <code>Authorization</code> header as follow:
   "<span class="hljs-attribute">shortId</span>": <span class="hljs-value"><span class="hljs-string">"48ed9szef"</span></span>,
   "<span class="hljs-attribute">creatorId</span>": <span class="hljs-value"><span class="hljs-string">"dez898rf5ez4f"</span></span>,
   "<span class="hljs-attribute">retailerId</span>": <span class="hljs-value"><span class="hljs-string">"56cs89dcs5"</span></span>,
-  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"'CREATED'"</span></span>,
   "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2017-01-20T10:28:15+0200"</span></span>,
   "<span class="hljs-attribute">lastModifiedAt</span>": <span class="hljs-value"><span class="hljs-string">"2017-01-20T16:12:09+02:00"</span></span>,
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-string">"'CREATED'"</span></span>,
   "<span class="hljs-attribute">originAfter</span>": <span class="hljs-value"><span class="hljs-string">"2017-01-20T12:00:00+02:00"</span></span>,
   "<span class="hljs-attribute">originBefore</span>": <span class="hljs-value"><span class="hljs-string">"2017-01-20T12:30:00+02:00"</span></span>,
   "<span class="hljs-attribute">originAddress</span>": <span class="hljs-value">{
@@ -753,6 +747,14 @@ This token must be placed in the <code>Authorization</code> header as follow:
     "<span class="hljs-attribute">retailerId</span>": <span class="hljs-value">{
       "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
     </span>}</span>,
+    "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Date"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">lastModifiedAt</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Date"</span>
+    </span>}</span>,
     "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
       "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
       "<span class="hljs-attribute">enum</span>": <span class="hljs-value">[
@@ -769,14 +771,6 @@ This token must be placed in the <code>Authorization</code> header as follow:
         <span class="hljs-string">"'FAILED'"</span>
       ]</span>,
       "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Current status"</span>
-    </span>}</span>,
-    "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value">{
-      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Date"</span>
-    </span>}</span>,
-    "<span class="hljs-attribute">lastModifiedAt</span>": <span class="hljs-value">{
-      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
-      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"Date"</span>
     </span>}</span>,
     "<span class="hljs-attribute">originAfter</span>": <span class="hljs-value">{
       "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
@@ -879,9 +873,6 @@ This token must be placed in the <code>Authorization</code> header as follow:
         </span>}
       </span>}</span>,
       "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
-        <span class="hljs-string">"formattedAddress"</span>,
-        <span class="hljs-string">"location"</span>,
-        <span class="hljs-string">"postalCode"</span>,
         <span class="hljs-string">"formattedAddress"</span>,
         <span class="hljs-string">"location"</span>,
         <span class="hljs-string">"postalCode"</span>
