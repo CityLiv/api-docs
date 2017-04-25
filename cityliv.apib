@@ -124,9 +124,9 @@ The maximum amount of calls is 10 requests/second. If you want to up
 Creates a new Course.
 
 + Request CourseSample
-  + Headers
-    Content-Type: application/json
-    Authorization: Bearer MY_SUPER_TOKEN
+            + Headers
+              Content-Type: application/json
+              Authorization: Bearer MY_SUPER_TOKEN
 
   + Attributes (Course Base)
 
@@ -140,17 +140,13 @@ Returns a list of your courses.
 
 + Parameters
     + limit (number, optional)
-
         A limit on the number of objects to be returned. Limit can range
         between 1 and 100 items.
-
         + Default: `10`
 
 + Request Example1 (application/json)
-  + Headers
-    Authorization: Bearer MY_SUPER_TOKEN
-  + Parameters
-    limit: 18
+        + Headers
+          Authorization: Bearer MY_SUPER_TOKEN
 
 + Response 200 (application/json)
     + Attributes (array[Course Computed])
