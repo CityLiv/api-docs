@@ -233,15 +233,13 @@ Retrieves the course with the given ID.
 
 
 ## Course Computed (object)
-
 + id: 151fdvb5dbg1(string)
 + shortId: 48ed9szef (string)
 + creatorId:  dez898rf5ez4f(string)
 + retailerId: 56cs89dcs5 (string)
-+ status: 'CREATED', 'PENDING', 'ASSIGNED', 'PICKING', 'WAITING_AT_ORIGIN', 'PICKED_UP', 'DELIVERING', 'WAITING_AT_DESTINATION', 'DELIVERED', 'DELETED', 'FAILED' (enum) - Current status
-
 + createdAt: `2017-01-20T10:28:15+0200` (string) - Date
 + lastModifiedAt: `2017-01-20T16:12:09+02:00` (string) - Date
++ status: 'CREATED', 'PENDING', 'ASSIGNED', 'PICKING', 'WAITING_AT_ORIGIN', 'PICKED_UP', 'DELIVERING', 'WAITING_AT_DESTINATION', 'DELIVERED', 'DELETED', 'FAILED' (enum) - Current status
 
 + Include Course Base
 
@@ -272,7 +270,6 @@ Retrieves the course with the given ID.
 + type: 'HOME', 'OFFICE', 'WAREHOUSE', 'SHOP' (enum, optional)
 
 ## Address Destination Base
-+ Include Address Base
 + formattedAddress: 26 rue de Rivoli, 75004 Paris, France (string, required)
 + location: 2.35604, 48.8560 (array, required) - GeoJson [lontitude, latitude]
 + postalCode: 75004 (string, required)
@@ -307,11 +304,11 @@ Retrieves the course with the given ID.
 
 
 ## Contact Computed
-+ Include Contact Base
 + id: bv8rt874btgvs89v4
 + creatorId: vrs64bvgr4s
++ Include Contact Base
 
 ## Contact Destination Computed
-+ Include Contact Destination Base
 + id: 4efzrv879qer4qze894
 + creatorId: vrs64bvgr4s
++ Include Contact Destination Base
