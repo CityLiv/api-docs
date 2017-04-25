@@ -1,0 +1,26 @@
+{
+  "name": "api-docs",
+  "version": "1.0.0",
+  "description": "[https://docs.api.cityliv.fr](https://docs.api.cityliv.fr)",
+  "main": "index.html",
+  "scripts": {
+    "start": "aglio --theme-variables slate --theme-template triple -i cityliv.apib -s",
+    "build": "aglio --theme-variables slate --theme-template triple -i cityliv.apib -o index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/CityLiv/api-docs.git"
+  },
+  "keywords": [
+    "docs",
+    "api",
+    "cityliv"
+  ],
+  "author": "Maxime Pawlak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CityLiv/api-docs/issues"
+  },
+  "homepage": "https://github.com/CityLiv/api-docs#readme"
+}
